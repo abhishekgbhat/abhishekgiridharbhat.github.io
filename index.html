@@ -4,440 +4,1260 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhishek Giridhar Bhat | Operations Leader</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/knadh/oat@gh-pages/oat.min.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-hover: #222230;
+            --accent-primary: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border: #27272a;
+            --success: #22c55e;
+            --glow: rgba(99, 102, 241, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 20%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        /* Grid Pattern Overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent-primary);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 4rem auto 0;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 40px;
+            background: var(--border);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-text .highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .highlight-item:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent-primary);
+            transform: translateX(10px);
+        }
+
+        .highlight-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--bg-secondary);
+        }
+
+        .experience-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .exp-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .exp-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .exp-card:hover::before {
+            opacity: 1;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .exp-title h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-company {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        .exp-meta {
+            text-align: right;
+        }
+
+        .exp-period {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-location {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .exp-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-achievements {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .exp-achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .exp-achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: var(--accent-gradient);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .achievement-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+        }
+
+        .achievement-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--accent-primary);
+        }
+
+        .achievement-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-header i {
+            font-size: 1.25rem;
+            color: var(--accent-primary);
+        }
+
+        .skill-header h3 {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 0.8rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        /* Contact Section */
+        .contact-card-large {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--accent-gradient);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card-large::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card-large h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card-large p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat-item:nth-child(2)::after,
+            .stat-item:nth-child(4)::after {
+                display: none;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .stat-item::after {
+                display: none !important;
+            }
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .exp-header {
+                flex-direction: column;
+            }
+            .exp-meta {
+                text-align: left;
+            }
+            .contact-card-large {
+                padding: 2rem;
+            }
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav data-topnav>
-            <div class="nav-inner container">
-                <a href="#" class="nav-brand">AGB</a>
-                <ul class="nav-links" role="list">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#achievements">Achievements</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button type="button" id="theme-toggle" class="ghost" aria-label="Toggle dark mode" title="Toggle theme">
-                    <i class="fas fa-moon" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="hamburger ghost" aria-label="Open menu" aria-expanded="false">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </nav>
-    </header>
+    <div class="bg-animation"></div>
+    <div class="grid-overlay"></div>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <p class="hero-subtitle">Operations Leader | Technical Operations Architect</p>
-                    <h1>Abhishek Giridhar Bhat</h1>
-                    <p class="hero-description">
-                        Strategic operations executive with 10+ years scaling high-growth SaaS companies
-                        from $0 to $50M+ ARR. Proven track record building and leading 40+ person
-                        cross-functional teams across 3 geographies, owning P&L for operational
-                        infrastructure, and delivering board-level business outcomes.
-                    </p>
-                    <div class="row hero-stats">
-                        <div class="col-3 col-6-mobile stat">
-                            <strong class="stat-number">10+</strong>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="col-3 col-6-mobile stat">
-                            <strong class="stat-number">$88M+</strong>
-                            <span class="stat-label">Capital Raised</span>
-                        </div>
-                        <div class="col-3 col-6-mobile stat">
-                            <strong class="stat-number">$150K+</strong>
-                            <span class="stat-label">Cost Savings</span>
-                        </div>
-                        <div class="col-3 col-6-mobile stat">
-                            <strong class="stat-number">40+</strong>
-                            <span class="stat-label">Team Members Led</span>
-                        </div>
-                    </div>
-                    <menu class="buttons hero-cta">
-                        <a href="#experience" class="button" data-variant="primary">View My Work</a>
-                        <a href="AbhishekGiridharBhat.pdf" class="button outline" download>Download Resume</a>
-                        <a href="mailto:abhishek.bhat5@gmail.com" class="button outline">Get in Touch</a>
-                    </menu>
+    <nav>
+        <div class="logo">AGB</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Available for opportunities
+            </div>
+            <h1>Building <span>Operational Excellence</span> at Scale</h1>
+            <p class="hero-subtitle">Operations Leader & Technical Operations Architect</p>
+            <p class="hero-description">10+ years scaling high-growth SaaS companies from $0 to $50M+ ARR. Built and led 40+ person teams across 3 geographies.</p>
+            <div class="hero-cta">
+                <a href="#experience" class="btn btn-primary">View Experience</a>
+                <a href="mailto:abhishek.bhat5@gmail.com" class="btn btn-secondary">Get in Touch</a>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$88M</span>
+                    <span class="stat-label">Capital Raised</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$50K+</span>
+                    <span class="stat-label">Cost Savings</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Team Members</span>
                 </div>
             </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <p class="lead">
-                        I'm an operations executive who thrives at the intersection of strategy,
-                        systems, and execution. I don't just manage operations—I architect them
-                        from the ground up.
-                    </p>
-                    <p>
-                        My track record includes scaling operations at 3 high-growth startups
-                        (Series A through C), driving 3× revenue expansion, and supporting $88M+
-                        in total capital raised. I've built zero-to-one operational infrastructure
-                        at 4 companies: India entity setup, compliance programs (SOC2/ISO27001),
-                        global GTM systems, and AI-powered automation platforms.
-                    </p>
-                    <p>
-                        What sets me apart: I'm fluent in Python, SQL, and APIs. I don't just
-                        manage engineers—I build alongside them. I've architected and deployed
-                        internal AI products that deliver $150K+ annual cost savings and reduce sales cycles by 35%.
-                    </p>
-                    <div class="row about-highlights">
-                        <div class="col-3 col-6-mobile">
-                            <div class="card highlight">
-                                <i class="fas fa-rocket" aria-hidden="true"></i>
-                                <span>3x Revenue Scale</span>
-                            </div>
-                        </div>
-                        <div class="col-3 col-6-mobile">
-                            <div class="card highlight">
-                                <i class="fas fa-robot" aria-hidden="true"></i>
-                                <span>AI-Powered Automation</span>
-                            </div>
-                        </div>
-                        <div class="col-3 col-6-mobile">
-                            <div class="card highlight">
-                                <i class="fas fa-globe" aria-hidden="true"></i>
-                                <span>3 Countries</span>
-                            </div>
-                        </div>
-                        <div class="col-3 col-6-mobile">
-                            <div class="card highlight">
-                                <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                                <span>SOC2/ISO27001 Certified</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section-alt">
-            <div class="container">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="timeline">
-                    <article class="timeline-item">
-                        <div class="timeline-marker" aria-hidden="true"></div>
-                        <div class="card timeline-content">
-                            <div class="timeline-header">
-                                <h3>Director of Operations</h3>
-                                <strong class="company">Kognitos</strong>
-                                <span class="period">Nov 2023 – Present · Bangalore, India (US HQ: San Jose, CA)</span>
-                            </div>
-                            <p class="timeline-description">
-                                AI-powered automation platform (Series B) – Reports to CEO/COO
-                            </p>
-                            <ul class="timeline-achievements">
-                                <li>Lead all operational functions for 150+ person company: Sales Ops, Marketing Ops, CS Ops, Support Ops, and Business Systems</li>
-                                <li>Built 25+ person India organization from zero; established payroll (Rippling/GreytHR), compliance (Drata SOC2/ISO27001), and spend controls (Ramp)</li>
-                                <li>Architected and deployed GTM Sync platform (internal product): AI-powered integration of Salesforce, Calendar, and Email via GPT-4/Claude/Gemini APIs, saving 15+ hrs/week per AE and $50K+ annually</li>
-                                <li>Built lead routing engine (Kognitos + Zapier), improving assignment accuracy 70% and speed 90%; automated forecasting and real-time pipeline dashboards for executive visibility</li>
-                                <li>Own vendor selection and contract negotiation across CRM, CPQ, compliance, payroll, and data enrichment platforms; manage $500K+ annual tooling budget</li>
-                                <li>Partner with CEO/COO on strategic planning, board reporting, and operational KPIs</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item">
-                        <div class="timeline-marker" aria-hidden="true"></div>
-                        <div class="card timeline-content">
-                            <div class="timeline-header">
-                                <h3>Senior Manager, Technical & Business Operations</h3>
-                                <strong class="company">Yugabyte</strong>
-                                <span class="period">Feb 2022 – Oct 2023 · Bangalore, India</span>
-                            </div>
-                            <p class="timeline-description">
-                                High-performance distributed SQL database (Series C, $188M raised)
-                            </p>
-                            <ul class="timeline-achievements">
-                                <li>Scaled GTM data infrastructure for 3× revenue growth across 3 new geographies; implemented DealHub CPQ and contract automation, reducing quote-to-close by 25%</li>
-                                <li>Built compliance automation (SOC2, ISO27001) via Drata – zero critical findings; architected partner portal enabling 50+ channel partners</li>
-                                <li>Drove 32% increase in qualified pipeline through Apollo/ZoomInfo implementation and process redesign; built partner ops from scratch (onboarding 40% faster)</li>
-                                <li>Created board-ready SaaS metrics (CAC, LTV, NRR) and forecasting models adopted by CFO and executive team</li>
-                                <li>Led India entity setup including legal structure, payroll infrastructure, and hiring operations; scaled team to 15+</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item">
-                        <div class="timeline-marker" aria-hidden="true"></div>
-                        <div class="card timeline-content">
-                            <div class="timeline-header">
-                                <h3>Head of Operations Engineering</h3>
-                                <strong class="company">Gojek</strong>
-                                <span class="period">Mar 2020 – Jan 2022 · Bangalore, India</span>
-                            </div>
-                            <p class="timeline-description">
-                                Southeast Asia's leading on-demand platform (decacorn, $10B+ valuation)
-                            </p>
-                            <ul class="timeline-achievements">
-                                <li>Led Operations Engineering for enterprise/B2B vertical ($100M+ annual revenue)</li>
-                                <li>Designed and deployed AI-enabled support platform (triage, classification, routing), reducing MTTR by 45% and improving CSAT scores</li>
-                                <li>Built customer health data platform integrating Salesforce + product + support data – 85% at-risk prediction accuracy; automated renewals/QBRs, cutting prep time 60%</li>
-                                <li>Built CS operations framework from scratch; improved retention +18%, reduced churn -12%; global CS playbook adopted in 3 countries</li>
-                                <li>Led cross-functional initiatives with Product, Engineering, and Finance to operationalize enterprise go-to-market strategy</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item">
-                        <div class="timeline-marker" aria-hidden="true"></div>
-                        <div class="card timeline-content">
-                            <div class="timeline-header">
-                                <h3>Operations Lead</h3>
-                                <strong class="company">upGrad</strong>
-                                <span class="period">Nov 2019 – Mar 2020 · Mumbai, India</span>
-                            </div>
-                            <p class="timeline-description">
-                                India's largest online higher education platform (unicorn)
-                            </p>
-                            <ul class="timeline-achievements">
-                                <li>Built HubSpot → Salesforce integration and attribution model</li>
-                                <li>Established pipeline tracking for $50M+ pipeline</li>
-                                <li>Created executive dashboards providing GTM visibility to C-suite and board</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item">
-                        <div class="timeline-marker" aria-hidden="true"></div>
-                        <div class="card timeline-content">
-                            <div class="timeline-header">
-                                <h3>GTM Systems Architect</h3>
-                                <strong class="company">Forte Research Systems (acquired by Advarra)</strong>
-                                <span class="period">Sep 2016 – Nov 2019 · Bangalore, India</span>
-                            </div>
-                            <p class="timeline-description">
-                                Enterprise SaaS for clinical research
-                            </p>
-                            <ul class="timeline-achievements">
-                                <li>Zero-to-one Salesforce architect for 100+ person GTM team; built data integration across Salesforce, marketing, and finance systems</li>
-                                <li>Automated KYC/contract workflows, reducing compliance workload 40%; built full-funnel visibility and forecasting models adopted by CFO/board</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="achievements">
-            <div class="container">
-                <h2 class="section-title">Key Achievements</h2>
-                <div class="row achievements-grid">
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-dollar-sign"></i></div>
-                            <h3>$150K+ Cost Savings</h3>
-                            <p>Via AI-enabled automation and workflow optimization</p>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
-                            <h3>32% Pipeline Growth</h3>
-                            <p>Through Apollo/ZoomInfo implementation and process redesign</p>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
-                            <h3>3x Revenue Scale</h3>
-                            <p>Across 3 high-growth companies (Series A through C)</p>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-building"></i></div>
-                            <h3>Zero-to-One India Operations</h3>
-                            <p>Entity setup, compliance, payroll, and 40+ person teams at 2 companies</p>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-brain"></i></div>
-                            <h3>AI Pioneer</h3>
-                            <p>First GPT-powered transcript automation in Salesforce; built and shipped GTM Sync as internal product</p>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-shield-check"></i></div>
-                            <h3>SOC2/ISO27001 Certified</h3>
-                            <p>At 2 startups with zero critical findings</p>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
-                            <h3>35% Shorter Sales Cycles</h3>
-                            <p>Through automation and process optimization</p>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card achievement-card">
-                            <div class="achievement-icon" aria-hidden="true"><i class="fas fa-headset"></i></div>
-                            <h3>45% Lower Support MTTR</h3>
-                            <p>Through AI-enabled workflows and triage systems</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section-alt">
-            <div class="container">
-                <h2 class="section-title">Skills & Expertise</h2>
-                <div class="row skills-grid">
-                    <div class="col-3 col-6-mobile">
-                        <div class="card skill-category">
-                            <h3><i class="fas fa-users" aria-hidden="true"></i> Leadership & Strategy</h3>
-                            <ul>
-                                <li>Team building (40+ people)</li>
-                                <li>Cross-functional leadership</li>
-                                <li>Board/C-suite partnership</li>
-                                <li>Strategic planning</li>
-                                <li>Operational scaling</li>
-                                <li>Vendor management</li>
-                                <li>P&L ownership</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card skill-category">
-                            <h3><i class="fas fa-code" aria-hidden="true"></i> Technical</h3>
-                            <ul>
-                                <li>Salesforce (Advanced Admin + Architecture)</li>
-                                <li>HubSpot</li>
-                                <li>REST APIs</li>
-                                <li>SQL</li>
-                                <li>Python</li>
-                                <li>JSON/XML</li>
-                                <li>AI/LLM integration (GPT-4, Claude, Gemini)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card skill-category">
-                            <h3><i class="fas fa-cogs" aria-hidden="true"></i> Business Systems</h3>
-                            <ul>
-                                <li>DealHub CPQ</li>
-                                <li>Apollo/ZoomInfo/Clay</li>
-                                <li>Rippling/GreytHR</li>
-                                <li>Drata</li>
-                                <li>Zapier</li>
-                                <li>Kognitos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-3 col-6-mobile">
-                        <div class="card skill-category">
-                            <h3><i class="fas fa-check-circle" aria-hidden="true"></i> Compliance & Methods</h3>
-                            <ul>
-                                <li>SOC2 Type II</li>
-                                <li>ISO27001</li>
-                                <li>GDPR</li>
-                                <li>Revenue Operations</li>
-                                <li>GTM Strategy</li>
-                                <li>OKRs</li>
-                                <li>Agile</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="section-alt">
-            <div class="container">
-                <h2 class="section-title">Education</h2>
-                <div class="row education-grid">
-                    <div class="col-6">
-                        <div class="card education-card">
-                            <h3>Postgraduate Degree, Computer Science</h3>
-                            <p class="education-school">International Institute of Information Technology Bangalore (IIIT-B)</p>
-                            <span class="period">2018 – 2019</span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="card education-card">
-                            <h3>Bachelor of Engineering, Computer Science</h3>
-                            <p class="education-school">RNS Institute of Technology</p>
-                            <span class="period">2012 – 2016</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
-                <div class="contact-content">
-                    <p class="contact-lead">
-                        Interested in discussing operations leadership, scaling challenges,
-                        or AI-powered automation? Let's connect.
-                    </p>
-                    <div class="row contact-links">
-                        <div class="col-4 col-6-mobile">
-                            <a href="mailto:abhishek.bhat5@gmail.com" class="card contact-card">
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                                <span>abhishek.bhat5@gmail.com</span>
-                            </a>
-                        </div>
-                        <div class="col-4 col-6-mobile">
-                            <a href="tel:+919008318521" class="card contact-card">
-                                <i class="fas fa-phone" aria-hidden="true"></i>
-                                <span>+91-9008318521</span>
-                            </a>
-                        </div>
-                        <div class="col-4 col-6-mobile">
-                            <a href="https://linkedin.com/in/abhishekgiridharbhat" target="_blank" rel="noopener noreferrer" class="card contact-card">
-                                <i class="fab fa-linkedin" aria-hidden="true"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                        </div>
-                        <div class="col-4 col-6-mobile">
-                            <a href="https://github.com/abhishekgbhat" target="_blank" rel="noopener noreferrer" class="card contact-card">
-                                <i class="fab fa-github" aria-hidden="true"></i>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                        <div class="col-4 col-6-mobile">
-                            <a href="https://www.chess.com/member/mutatedWeapon" target="_blank" rel="noopener noreferrer" class="card contact-card">
-                                <i class="fas fa-chess-knight" aria-hidden="true"></i>
-                                <span>Chess.com</span>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="location">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        Bangalore, India
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Abhishek Giridhar Bhat. All rights reserved.</p>
-            <p class="footer-tagline">Operations Leader | Technical Operations Architect</p>
         </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-header fade-in">
+            <span class="section-label">About Me</span>
+            <h2 class="section-title">Strategy, Systems & Execution</h2>
+            <p class="section-subtitle">I'm an operations executive who thrives at the intersection of business strategy and technical implementation.</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <p>My track record includes <span class="highlight">scaling operations at 3 high-growth startups</span> (Series A through C), driving 3x revenue expansion, and supporting $88M+ in total capital raised.</p>
+                <p>I've built <span class="highlight">zero-to-one operational infrastructure</span> at 4 companies: India entity setup, compliance programs (SOC2/ISO27001), global GTM systems, and AI-powered automation platforms.</p>
+                <p>What sets me apart: I'm fluent in Python, SQL, and APIs. I don't just manage engineers—I <span class="highlight">build alongside them</span>. I've architected internal AI products that save $50K+ annually and reduce sales cycles by 35%.</p>
+            </div>
+            <div class="about-highlights fade-in">
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h4>3x Revenue Scale</h4>
+                        <p>Across 3 high-growth companies</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h4>AI-Powered Automation</h4>
+                        <p>First GPT-powered internal products</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h4>3 Countries</h4>
+                        <p>Led teams across geographies</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h4>SOC2/ISO27001</h4>
+                        <p>Zero critical findings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="section-header fade-in">
+            <span class="section-label">Experience</span>
+            <h2 class="section-title">Professional Journey</h2>
+            <p class="section-subtitle">Leading operations at high-growth startups from Series A to C.</p>
+        </div>
+
+        <div class="experience-grid">
+            <div class="exp-card fade-in">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Director of Operations</h3>
+                        <span class="exp-company">Kognitos</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-period">Nov 2023 – Present</span>
+                        <span class="exp-location">Bangalore, India (US HQ)</span>
+                    </div>
+                </div>
+                <p class="exp-description">AI-powered automation platform (Series B) — Reports to CEO/COO. Leading all operational functions for 150+ person company.</p>
+                <ul class="exp-achievements">
+                    <li>Built 25+ person India organization from zero; established payroll, SOC2/ISO27001 compliance, spend controls</li>
+                    <li>Architected GTM Sync: AI-powered platform integrating Salesforce, Calendar, Email via GPT-4/Claude/Gemini — saves 15+ hrs/week per AE, $50K+ annually</li>
+                    <li>Built lead routing engine with 70% better assignment accuracy and 90% faster speed</li>
+                    <li>Manage $500K+ annual tooling budget; partner with CEO on strategic planning and board reporting</li>
+                </ul>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Senior Manager, Technical & Business Operations</h3>
+                        <span class="exp-company">Yugabyte</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-period">Feb 2022 – Oct 2023</span>
+                        <span class="exp-location">Bangalore, India</span>
+                    </div>
+                </div>
+                <p class="exp-description">High-performance distributed SQL database (Series C, $88M raised)</p>
+                <ul class="exp-achievements">
+                    <li>Scaled GTM data infrastructure for 3x revenue growth across 3 new geographies</li>
+                    <li>Implemented DealHub CPQ and contract automation, reducing quote-to-close by 25%</li>
+                    <li>Built compliance automation (SOC2, ISO27001) via Drata — zero critical findings</li>
+                    <li>Created board-ready SaaS metrics (CAC, LTV, NRR) adopted by CFO and executive team</li>
+                    <li>Led India entity setup; scaled team to 15+</li>
+                </ul>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Head of Operations Engineering</h3>
+                        <span class="exp-company">Gojek</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-period">Mar 2020 – Jan 2022</span>
+                        <span class="exp-location">Bangalore, India</span>
+                    </div>
+                </div>
+                <p class="exp-description">Southeast Asia's leading on-demand platform (Decacorn, $10B+ valuation)</p>
+                <ul class="exp-achievements">
+                    <li>Led Operations Engineering for enterprise/B2B vertical ($100M+ annual revenue)</li>
+                    <li>Designed AI-enabled support platform, reducing MTTR by 45% and improving CSAT</li>
+                    <li>Built customer health data platform with 85% at-risk prediction accuracy</li>
+                    <li>Built CS operations framework from scratch; improved retention +18%, reduced churn -12%</li>
+                    <li>Global CS playbook adopted in 3 countries</li>
+                </ul>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Operations Lead</h3>
+                        <span class="exp-company">upGrad</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-period">Nov 2019 – Mar 2020</span>
+                        <span class="exp-location">Mumbai, India</span>
+                    </div>
+                </div>
+                <p class="exp-description">India's largest online higher education platform (Unicorn)</p>
+                <ul class="exp-achievements">
+                    <li>Built HubSpot → Salesforce integration and attribution model</li>
+                    <li>Established pipeline tracking for $50M+ pipeline</li>
+                    <li>Created executive dashboards for C-suite and board visibility</li>
+                </ul>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>GTM Systems Architect</h3>
+                        <span class="exp-company">Forte Research Systems</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-period">Sep 2016 – Nov 2019</span>
+                        <span class="exp-location">Bangalore, India</span>
+                    </div>
+                </div>
+                <p class="exp-description">Enterprise SaaS for clinical research (Acquired by Advarra)</p>
+                <ul class="exp-achievements">
+                    <li>Zero-to-one Salesforce architect for 100+ person GTM team</li>
+                    <li>Automated KYC/contract workflows, reducing compliance workload 40%</li>
+                    <li>Built full-funnel visibility and forecasting models adopted by CFO/board</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements">
+        <div class="section-header fade-in">
+            <span class="section-label">Impact</span>
+            <h2 class="section-title">Key Achievements</h2>
+            <p class="section-subtitle">Measurable results from operational excellence and strategic execution.</p>
+        </div>
+
+        <div class="achievements-grid">
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>$50K+</h3>
+                <p>Annual cost savings delivered through AI-enabled automation and workflow optimization</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>32%</h3>
+                <p>Pipeline growth achieved through data-driven GTM operations and process redesign</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>3x</h3>
+                <p>Revenue scale across 3 high-growth companies from Series A through C</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Zero-to-One</h3>
+                <p>India operations built from scratch: entity setup, compliance, payroll, 40+ person teams</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI Pioneer</h3>
+                <p>First GPT-powered automation in Salesforce; built GTM Sync as internal product</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Compliance</h3>
+                <p>SOC2/ISO27001 certified at 2 startups with zero critical findings</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>35%</h3>
+                <p>Shorter sales cycles through automation and process optimization</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>45%</h3>
+                <p>Lower support MTTR through AI-enabled workflows and triage systems</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="section-header fade-in">
+            <span class="section-label">Expertise</span>
+            <h2 class="section-title">Skills & Technologies</h2>
+            <p class="section-subtitle">Technical and leadership capabilities built over 10+ years.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <i class="fas fa-users"></i>
+                    <h3>Leadership</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Team Building</span>
+                    <span class="skill-tag">Strategic Planning</span>
+                    <span class="skill-tag">C-Suite Partnership</span>
+                    <span class="skill-tag">Operational Scaling</span>
+                    <span class="skill-tag">Vendor Management</span>
+                    <span class="skill-tag">P&L Ownership</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <i class="fas fa-code"></i>
+                    <h3>Technical</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Salesforce</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">GPT-4/Claude</span>
+                    <span class="skill-tag">JSON/XML</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Systems</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">HubSpot</span>
+                    <span class="skill-tag">DealHub CPQ</span>
+                    <span class="skill-tag">Apollo</span>
+                    <span class="skill-tag">Rippling</span>
+                    <span class="skill-tag">Drata</span>
+                    <span class="skill-tag">Zapier</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <div class="skill-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Compliance</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">SOC2 Type II</span>
+                    <span class="skill-tag">ISO27001</span>
+                    <span class="skill-tag">GDPR</span>
+                    <span class="skill-tag">RevOps</span>
+                    <span class="skill-tag">GTM Strategy</span>
+                    <span class="skill-tag">OKRs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-card-large fade-in">
+            <div class="contact-content">
+                <h2>Let's Build Something Great</h2>
+                <p>Interested in discussing operations, scaling challenges, or AI-powered automation?</p>
+                <div class="contact-links-row">
+                    <a href="mailto:abhishek.bhat5@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        abhishek.bhat5@gmail.com
+                    </a>
+                    <a href="tel:+919008318521" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +91-9008318521
+                    </a>
+                    <a href="https://linkedin.com/in/abhishekgiridharbhat" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/abhishekgbhat" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+                <div class="location-tag">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Bangalore, India
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Abhishek Giridhar Bhat. Built with precision.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/gh/knadh/oat@gh-pages/oat.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 15, 0.8)';
+            }
+        });
+    </script>
 </body>
 </html>

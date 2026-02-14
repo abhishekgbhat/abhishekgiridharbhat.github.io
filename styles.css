@@ -363,7 +363,24 @@ section {
 }
 
 .contact-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
     margin-bottom: var(--space-6);
+    max-width: 52rem;
+    margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+    .contact-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact-card {
@@ -376,7 +393,22 @@ section {
     color: var(--foreground);
     font-weight: 500;
     transition: background-color var(--transition-fast), transform var(--transition-fast);
-    height: 100%;
+    min-height: 3.5rem;
+    text-align: center;
+}
+
+.contact-card span {
+    word-break: break-word;
+}
+
+@media (min-width: 769px) {
+    .contact-links .contact-card:nth-child(n + 4) {
+        grid-column: span 1;
+    }
+    /* Center the last row when 5 items: place last item in the center of the 3-column grid */
+    .contact-links .contact-card:last-child:nth-child(5) {
+        grid-column: 2;
+    }
 }
 
 .contact-card:hover {
@@ -386,6 +418,7 @@ section {
 
 .contact-card i {
     font-size: 1.25rem;
+    flex-shrink: 0;
 }
 
 .location {
