@@ -755,6 +755,213 @@
             font-size: 0.9rem;
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2001;
+            transition: all 0.3s;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-company {
+            font-size: 1.25rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .modal-metric {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .modal-metric-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .modal-metric-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .modal-list {
+            list-style: none;
+        }
+
+        .modal-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .modal-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        .exp-card {
+            cursor: pointer;
+        }
+
+        .exp-card-click-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            transition: all 0.3s;
+        }
+
+        .exp-card:hover .exp-card-click-hint {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .modal-container {
+                margin: 1rem auto;
+            }
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+            .modal-metrics {
+                grid-template-columns: 1fr;
+            }
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -945,7 +1152,7 @@
         </div>
 
         <div class="experience-grid">
-            <div class="exp-card fade-in">
+            <div class="exp-card fade-in" onclick="openModal('modal-kognitos')">
                 <div class="exp-header">
                     <div class="exp-title">
                         <h3>Director of Operations</h3>
@@ -963,9 +1170,12 @@
                     <li>Built lead routing engine with 70% better assignment accuracy and 90% faster speed</li>
                     <li>Manage $500K+ annual tooling budget; partner with CEO on strategic planning and board reporting</li>
                 </ul>
+                <div class="exp-card-click-hint">
+                    <i class="fas fa-expand-alt"></i> Click for details
+                </div>
             </div>
 
-            <div class="exp-card fade-in">
+            <div class="exp-card fade-in" onclick="openModal('modal-yugabyte')">
                 <div class="exp-header">
                     <div class="exp-title">
                         <h3>Senior Manager, Technical & Business Operations</h3>
@@ -984,9 +1194,12 @@
                     <li>Created board-ready SaaS metrics (CAC, LTV, NRR) adopted by CFO and executive team</li>
                     <li>Led India entity setup; scaled team to 15+</li>
                 </ul>
+                <div class="exp-card-click-hint">
+                    <i class="fas fa-expand-alt"></i> Click for details
+                </div>
             </div>
 
-            <div class="exp-card fade-in">
+            <div class="exp-card fade-in" onclick="openModal('modal-gojek')">
                 <div class="exp-header">
                     <div class="exp-title">
                         <h3>Head of Operations Engineering</h3>
@@ -1005,9 +1218,12 @@
                     <li>Built CS operations framework from scratch; improved retention +18%, reduced churn -12%</li>
                     <li>Global CS playbook adopted in 3 countries</li>
                 </ul>
+                <div class="exp-card-click-hint">
+                    <i class="fas fa-expand-alt"></i> Click for details
+                </div>
             </div>
 
-            <div class="exp-card fade-in">
+            <div class="exp-card fade-in" onclick="openModal('modal-upgrad')">
                 <div class="exp-header">
                     <div class="exp-title">
                         <h3>Operations Lead</h3>
@@ -1024,9 +1240,12 @@
                     <li>Established pipeline tracking for $50M+ pipeline</li>
                     <li>Created executive dashboards for C-suite and board visibility</li>
                 </ul>
+                <div class="exp-card-click-hint">
+                    <i class="fas fa-expand-alt"></i> Click for details
+                </div>
             </div>
 
-            <div class="exp-card fade-in">
+            <div class="exp-card fade-in" onclick="openModal('modal-forte')">
                 <div class="exp-header">
                     <div class="exp-title">
                         <h3>GTM Systems Architect</h3>
@@ -1043,6 +1262,9 @@
                     <li>Automated KYC/contract workflows, reducing compliance workload 40%</li>
                     <li>Built full-funnel visibility and forecasting models adopted by CFO/board</li>
                 </ul>
+                <div class="exp-card-click-hint">
+                    <i class="fas fa-expand-alt"></i> Click for details
+                </div>
             </div>
         </div>
     </section>
@@ -1212,11 +1434,361 @@
         </div>
     </section>
 
+    <!-- Modals for Experience Details -->
+    <div class="modal-overlay" id="modal-kognitos">
+        <div class="modal-close" onclick="closeModal('modal-kognitos')">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Director of Operations</h2>
+                    <div class="modal-company">Kognitos</div>
+                    <div class="modal-meta">Nov 2023 – Present • Bangalore, India (US HQ: San Jose, CA) • AI-powered automation platform (Series B)</div>
+                </div>
+
+                <div class="modal-metrics">
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">25+</span>
+                        <span class="modal-metric-label">Team Built</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">$50K+</span>
+                        <span class="modal-metric-label">Annual Savings</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">15hrs</span>
+                        <span class="modal-metric-label">Saved Per AE/Week</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
+                    <p>Kognitos was scaling rapidly as a Series B AI automation company with 150+ employees spread across US and India. The operations infrastructure was fragmented—no unified GTM system, manual processes eating up sales team time, and compliance requirements looming for enterprise deals. I was brought in to build the India operations from zero and architect systems that could scale.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
+                    <p>I took a "build vs buy" approach with heavy emphasis on AI-powered automation—eating our own dog food. Rather than just implementing off-the-shelf tools, I architected custom integrations using our own AI platform combined with GPT-4/Claude/Gemini APIs.</p>
+                    <ul class="modal-list">
+                        <li>Built India entity from scratch: legal structure, payroll (Rippling/GreytHR), compliance (Drata SOC2/ISO27001), spend controls (Ramp)</li>
+                        <li>Architected GTM Sync: an internal AI product that integrates Salesforce, Calendar, and Email to automatically transcribe calls, extract action items, and update CRM fields</li>
+                        <li>Designed lead routing engine with intelligent assignment based on territory, workload, and expertise</li>
+                        <li>Established board-ready reporting cadence with real-time pipeline dashboards</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
+                    <ul class="modal-list">
+                        <li>Built 25+ person India organization from zero to full operational capacity in 6 months</li>
+                        <li>GTM Sync saves 15+ hours per week per AE and $50K+ annually in productivity gains</li>
+                        <li>Lead routing improved assignment accuracy by 70% and speed by 90%</li>
+                        <li>Achieved SOC2/ISO27001 compliance with zero critical findings—enabling enterprise sales</li>
+                        <li>Manage $500K+ annual tooling budget with optimized vendor stack</li>
+                        <li>Direct partnership with CEO/COO on strategic planning and board reporting</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
+                    <p>Salesforce, Rippling, GreytHR, Drata, Ramp, GPT-4/Claude/Gemini APIs, Zapier, Kognitos (internal AI platform), REST APIs, Python</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-yugabyte">
+        <div class="modal-close" onclick="closeModal('modal-yugabyte')">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Senior Manager, Technical & Business Operations</h2>
+                    <div class="modal-company">Yugabyte</div>
+                    <div class="modal-meta">Feb 2022 – Oct 2023 • Bangalore, India • High-performance distributed SQL database (Series C, $88M raised)</div>
+                </div>
+
+                <div class="modal-metrics">
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">3x</span>
+                        <span class="modal-metric-label">Revenue Growth</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">25%</span>
+                        <span class="modal-metric-label">Faster Quote-to-Close</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">32%</span>
+                        <span class="modal-metric-label">Pipeline Increase</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
+                    <p>Yugabyte was expanding aggressively into new geographies while also needing to mature its GTM operations for enterprise readiness. The company had strong engineering but needed operational infrastructure to support a Series C growth trajectory. Key challenges: scaling GTM data across 3 new regions, implementing enterprise-grade compliance, and building partner operations from scratch.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
+                    <p>I focused on three pillars: data infrastructure for scale, compliance automation for enterprise readiness, and partner enablement for channel growth. Built systems that provided visibility while automating manual work.</p>
+                    <ul class="modal-list">
+                        <li>Scaled GTM data infrastructure to support 3x revenue growth across 3 new geographies</li>
+                        <li>Implemented DealHub CPQ and contract automation workflows</li>
+                        <li>Built compliance automation via Drata for SOC2 and ISO27001 certification</li>
+                        <li>Architected partner portal enabling 50+ channel partners to self-serve</li>
+                        <li>Created SaaS metrics dashboard (CAC, LTV, NRR) adopted by CFO for board reporting</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
+                    <ul class="modal-list">
+                        <li>Reduced quote-to-close time by 25% through CPQ implementation</li>
+                        <li>Achieved SOC2 and ISO27001 compliance with zero critical findings</li>
+                        <li>Drove 32% increase in qualified pipeline through Apollo/ZoomInfo implementation</li>
+                        <li>Built partner operations from scratch—onboarding 40% faster</li>
+                        <li>Led India entity setup including legal, payroll, and hiring operations; scaled team to 15+</li>
+                        <li>Board-ready forecasting models and SaaS metrics adopted by executive team</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
+                    <p>DealHub CPQ, Apollo, ZoomInfo, Drata, Salesforce, SQL, SaaS metrics frameworks, Partner portal architecture</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-gojek">
+        <div class="modal-close" onclick="closeModal('modal-gojek')">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Head of Operations Engineering</h2>
+                    <div class="modal-company">Gojek</div>
+                    <div class="modal-meta">Mar 2020 – Jan 2022 • Bangalore, India • Southeast Asia's leading on-demand platform (Decacorn, $10B+ valuation)</div>
+                </div>
+
+                <div class="modal-metrics">
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">$100M+</span>
+                        <span class="modal-metric-label">Revenue Vertical</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">45%</span>
+                        <span class="modal-metric-label">MTTR Reduction</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">85%</span>
+                        <span class="modal-metric-label">Prediction Accuracy</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
+                    <p>Gojek's enterprise/B2B vertical was generating $100M+ annually but support operations were struggling to keep pace. High MTTR (mean time to resolution), reactive support model, and no systematic way to predict churn or health at-risk accounts. Needed to transform from reactive firefighting to proactive customer success.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
+                    <p>I built an AI-enabled operations platform that combined predictive analytics with automated workflows. Created a 360-degree customer health view integrating product usage, support tickets, and Salesforce data.</p>
+                    <ul class="modal-list">
+                        <li>Designed and deployed AI-enabled support platform for intelligent triage, classification, and routing</li>
+                        <li>Built customer health data platform integrating Salesforce + product analytics + support data</li>
+                        <li>Created automated renewal workflows and QBR preparation reducing manual work</li>
+                        <li>Developed CS operations framework from scratch for the enterprise vertical</li>
+                        <li>Collaborated with Product, Engineering, and Finance to operationalize GTM strategy</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
+                    <ul class="modal-list">
+                        <li>Reduced MTTR by 45% and improved CSAT scores through AI-powered support automation</li>
+                        <li>Achieved 85% at-risk prediction accuracy for customer churn</li>
+                        <li>Automated renewals and QBRs, cutting prep time by 60%</li>
+                        <li>Improved retention by 18% and reduced churn by 12%</li>
+                        <li>Global CS playbook adopted across 3 countries</li>
+                        <li>Built CS operations framework enabling scalable customer success</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
+                    <p>AI/ML for support triage, Salesforce, Data pipelines, Customer health scoring models, Python, SQL</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-upgrad">
+        <div class="modal-close" onclick="closeModal('modal-upgrad')">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Operations Lead</h2>
+                    <div class="modal-company">upGrad</div>
+                    <div class="modal-meta">Nov 2019 – Mar 2020 • Mumbai, India • India's largest online higher education platform (Unicorn)</div>
+                </div>
+
+                <div class="modal-metrics">
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">$50M+</span>
+                        <span class="modal-metric-label">Pipeline Tracked</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">Zero</span>
+                        <span class="modal-metric-label">To One</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">C-Suite</span>
+                        <span class="modal-metric-label">Visibility</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
+                    <p>upGrad was scaling rapidly as India's largest edtech unicorn but lacked unified visibility into their $50M+ sales pipeline. Marketing and Sales were operating on disconnected systems (HubSpot vs Salesforce), making attribution impossible and forecasting unreliable. Leadership needed real-time visibility for board reporting.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
+                    <p>I architected the integration between marketing automation and CRM, built attribution models, and created executive dashboards that provided real-time pipeline visibility.</p>
+                    <ul class="modal-list">
+                        <li>Built HubSpot to Salesforce integration enabling seamless lead flow</li>
+                        <li>Created attribution model to track lead sources and campaign effectiveness</li>
+                        <li>Established pipeline tracking infrastructure for $50M+ pipeline</li>
+                        <li>Designed executive dashboards for C-suite and board visibility</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
+                    <ul class="modal-list">
+                        <li>Unified marketing and sales data for end-to-end visibility</li>
+                        <li>Enabled accurate attribution tracking for campaign ROI analysis</li>
+                        <li>Created real-time dashboards adopted by C-suite for decision making</li>
+                        <li>Foundation for scalable GTM operations at unicorn-scale company</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
+                    <p>HubSpot, Salesforce, Data integration, Attribution modeling, Executive dashboards</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-forte">
+        <div class="modal-close" onclick="closeModal('modal-forte')">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>GTM Systems Architect</h2>
+                    <div class="modal-company">Forte Research Systems (Acquired by Advarra)</div>
+                    <div class="modal-meta">Sep 2016 – Nov 2019 • Bangalore, India • Enterprise SaaS for clinical research</div>
+                </div>
+
+                <div class="modal-metrics">
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">100+</span>
+                        <span class="modal-metric-label">GTM Team Size</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">40%</span>
+                        <span class="modal-metric-label">Workload Reduction</span>
+                    </div>
+                    <div class="modal-metric">
+                        <span class="modal-metric-value">Zero</span>
+                        <span class="modal-metric-label">To One</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
+                    <p>Forte was a growing enterprise SaaS company with 100+ GTM team members but no unified CRM or data infrastructure. Sales, Marketing, and Finance operated in silos with manual processes for KYC, contracts, and forecasting. Needed zero-to-one Salesforce architecture and full-funnel visibility.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
+                    <p>I architected Salesforce from scratch as the single source of truth, built data integrations across systems, and automated compliance workflows to reduce manual burden.</p>
+                    <ul class="modal-list">
+                        <li>Zero-to-one Salesforce architect for 100+ person GTM team</li>
+                        <li>Built data integration across Salesforce, Marketing, and Finance systems</li>
+                        <li>Automated KYC and contract workflows to reduce compliance burden</li>
+                        <li>Created full-funnel visibility and forecasting models</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
+                    <ul class="modal-list">
+                        <li>Built Salesforce foundation enabling scalable GTM operations</li>
+                        <li>Reduced compliance workload by 40% through workflow automation</li>
+                        <li>Created forecasting models adopted by CFO and board</li>
+                        <li>Established data foundation for company's acquisition by Advarra</li>
+                        <li>Full-funnel visibility from lead to revenue for first time</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
+                    <p>Salesforce Architecture, Data integration, Workflow automation, Compliance systems, KYC automation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Abhishek Giridhar Bhat. Built with precision.</p>
     </footer>
 
     <script>
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
         // Fade in animation on scroll
         const observerOptions = {
             threshold: 0.1,
