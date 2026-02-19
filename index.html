@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Giridhar Bhat | Operations Leader</title>
+    <title>Abhishek Giridhar Bhat | VP Operations / COO</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -148,6 +148,40 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Hamburger Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         /* Hero Section */
@@ -1006,8 +1040,29 @@
             nav {
                 padding: 1rem 1.5rem;
             }
+            .nav-toggle {
+                display: flex;
+            }
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(10, 10, 15, 0.97);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                z-index: 999;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 1.25rem;
             }
             .hero {
                 padding: 7rem 1.5rem 3rem;
@@ -1046,13 +1101,18 @@
 
     <nav>
         <div class="logo">AGB</div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <section class="hero">
@@ -1061,9 +1121,9 @@
                 <span class="badge-dot"></span>
                 Available for opportunities
             </div>
-            <h1>Building <span>Operational Excellence</span> at Scale</h1>
-            <p class="hero-subtitle">Operations Leader & Technical Operations Architect</p>
-            <p class="hero-description">10+ years scaling high-growth SaaS companies from $0 to $50M+ ARR. Built and led 40+ person teams across 3 geographies.</p>
+            <h1>Building the <span>Operating System Behind Revenue Growth</span></h1>
+            <p class="hero-subtitle">VP Operations / COO &middot; Revenue Operations Architect &middot; Zero-to-One Entity Builder</p>
+            <p class="hero-description">10+ years scaling venture-backed SaaS companies from Series A through C. Built entities from zero, designed board-ready forecasting frameworks, and led 40+ person cross-functional teams across 3 geographies.</p>
             <div class="hero-cta">
                 <a href="#experience" class="btn btn-primary">View Experience</a>
                 <a href="mailto:abhishek.bhat5@gmail.com" class="btn btn-secondary">Get in Touch</a>
@@ -1071,20 +1131,20 @@
             
             <div class="stats-bar">
                 <div class="stat-item">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Years Experience</span>
+                    <span class="stat-number">$50M</span>
+                    <span class="stat-label">ARR Under Management</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">$88M</span>
-                    <span class="stat-label">Capital Raised</span>
+                    <span class="stat-number">$500K</span>
+                    <span class="stat-label">P&L: Vendor & Tooling</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">$50K+</span>
-                    <span class="stat-label">Cost Savings</span>
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Companies Scaled</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">40+</span>
-                    <span class="stat-label">Team Members</span>
+                    <span class="stat-label">Cross-Functional Team</span>
                 </div>
             </div>
         </div>
@@ -1094,14 +1154,14 @@
         <div class="section-header fade-in">
             <span class="section-label">About Me</span>
             <h2 class="section-title">Strategy, Systems & Execution</h2>
-            <p class="section-subtitle">I'm an operations executive who thrives at the intersection of business strategy and technical implementation.</p>
+            <p class="section-subtitle">Operations executive who builds the operating system behind revenue growth — not just processes that support it.</p>
         </div>
         
         <div class="about-grid">
             <div class="about-text fade-in">
-                <p>My track record includes <span class="highlight">scaling operations at 3 high-growth startups</span> (Series A through C), driving 3x revenue expansion, and supporting $88M+ in total capital raised.</p>
-                <p>I've built <span class="highlight">zero-to-one operational infrastructure</span> at 4 companies: India entity setup, compliance programs (SOC2/ISO27001), global GTM systems, and AI-powered automation platforms.</p>
-                <p>What sets me apart: I'm fluent in Python, SQL, and APIs. I don't just manage engineers—I <span class="highlight">build alongside them</span>. I've architected internal AI products that save $50K+ annually and reduce sales cycles by 35%.</p>
+                <p>10+ years owning P&L, org design, and GTM infrastructure at venture-backed SaaS companies through <span class="highlight">Series A → C inflection points</span>. Track record of making high-stakes resource allocation and market entry decisions that directly shaped company trajectory.</p>
+                <p>Built <span class="highlight">two India entities from zero</span>, designed the forecasting frameworks adopted by two separate CFOs as board-ready reporting layers, and personally consolidated $500K+ in vendor spend under a unified efficiency model.</p>
+                <p>Rare operator who <span class="highlight">architects systems at depth</span> — ships Apex, Python, and API integrations — while presenting quarterly to boards on ARR, NRR, and pipeline health. Built and shipped <span class="highlight">Sync Smart</span> as a live SaaS product proving that RevOps is a product problem to solve.</p>
             </div>
             <div class="about-highlights fade-in">
                 <div class="highlight-item">
@@ -1110,7 +1170,7 @@
                     </div>
                     <div class="highlight-content">
                         <h4>3x Revenue Scale</h4>
-                        <p>Across 3 high-growth companies</p>
+                        <p>GTM infrastructure through 3x revenue growth</p>
                     </div>
                 </div>
                 <div class="highlight-item">
@@ -1118,8 +1178,8 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="highlight-content">
-                        <h4>AI-Powered Automation</h4>
-                        <p>First GPT-powered internal products</p>
+                        <h4>Sync Smart</h4>
+                        <p>Live SaaS product — React/Node.js, AI deal scoring</p>
                     </div>
                 </div>
                 <div class="highlight-item">
@@ -1127,8 +1187,8 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <div class="highlight-content">
-                        <h4>3 Countries</h4>
-                        <p>Led teams across geographies</p>
+                        <h4>3 Entities Built</h4>
+                        <p>India, US, SEA — from zero</p>
                     </div>
                 </div>
                 <div class="highlight-item">
@@ -1137,7 +1197,7 @@
                     </div>
                     <div class="highlight-content">
                         <h4>SOC2/ISO27001</h4>
-                        <p>Zero critical findings</p>
+                        <p>Full program ownership, zero critical findings</p>
                     </div>
                 </div>
             </div>
@@ -1148,7 +1208,7 @@
         <div class="section-header fade-in">
             <span class="section-label">Experience</span>
             <h2 class="section-title">Professional Journey</h2>
-            <p class="section-subtitle">Leading operations at high-growth startups from Series A to C.</p>
+            <p class="section-subtitle">Leading operations at venture-backed SaaS companies from Series A to C.</p>
         </div>
 
         <div class="experience-grid">
@@ -1160,15 +1220,17 @@
                     </div>
                     <div class="exp-meta">
                         <span class="exp-period">Nov 2023 – Present</span>
-                        <span class="exp-location">Bangalore, India (US HQ)</span>
+                        <span class="exp-location">San Jose, CA (India Office: Bangalore)</span>
                     </div>
                 </div>
-                <p class="exp-description">AI-powered automation platform (Series B) — Reports to CEO/COO. Leading all operational functions for 150+ person company.</p>
+                <p class="exp-description">Series B AI Automation Platform &middot; 150+ Employees &middot; Direct report to CEO &middot; Full P&L ownership of $500K+ vendor stack</p>
                 <ul class="exp-achievements">
-                    <li>Built 25+ person India organization from zero; established payroll, SOC2/ISO27001 compliance, spend controls</li>
-                    <li>Architected GTM Sync: AI-powered platform integrating Salesforce, Calendar, Email via GPT-4/Claude/Gemini — saves 15+ hrs/week per AE, $50K+ annually</li>
-                    <li>Built lead routing engine with 70% better assignment accuracy and 90% faster speed</li>
-                    <li>Manage $500K+ annual tooling budget; partner with CEO on strategic planning and board reporting</li>
+                    <li>Made the build-vs-buy decision on India operations — built entity from scratch, saving 30%+ in per-employee costs. Now a 60+ person office</li>
+                    <li>Designed and own the company's forecasting methodology — ARR, pipeline coverage, and SaaS KPI taxonomy used as board's single source of truth</li>
+                    <li>Restructured lead routing from scratch — 70% accuracy improvement, 90% latency reduction, measurable lift in stage-1 conversion</li>
+                    <li>Consolidated GTM stack under unified governance model — recovered 15+ hrs/week in AE selling time through automation</li>
+                    <li>Own SOC2 Type II and ISO27001 compliance programs end-to-end. Zero critical findings</li>
+                    <li>Stood up partner operations — AWS Partner Central migration, ISV co-sell workflow, partner-sourced pipeline tracking</li>
                 </ul>
                 <div class="exp-card-click-hint">
                     <i class="fas fa-expand-alt"></i> Click for details
@@ -1186,13 +1248,13 @@
                         <span class="exp-location">Bangalore, India</span>
                     </div>
                 </div>
-                <p class="exp-description">High-performance distributed SQL database (Series C, $88M raised)</p>
+                <p class="exp-description">Series C, $188M Raised &middot; Open-Source Distributed SQL &middot; First ops hire, reported to CRO</p>
                 <ul class="exp-achievements">
-                    <li>Scaled GTM data infrastructure for 3x revenue growth across 3 new geographies</li>
-                    <li>Implemented DealHub CPQ and contract automation, reducing quote-to-close by 25%</li>
-                    <li>Built compliance automation (SOC2, ISO27001) via Drata — zero critical findings</li>
-                    <li>Created board-ready SaaS metrics (CAC, LTV, NRR) adopted by CFO and executive team</li>
-                    <li>Led India entity setup; scaled team to 15+</li>
+                    <li>Inherited no infrastructure and built the full revenue stack — architectural decisions on Salesforce, HubSpot, Outreach, and enrichment tooling through 3x revenue growth</li>
+                    <li>Proposed and executed CPQ overhaul — reduced quote-to-close cycle by 25%</li>
+                    <li>Designed SaaS metrics framework (CAC, LTV, NRR) adopted by CFO as board-ready reporting layer</li>
+                    <li>Drove 32% qualified pipeline increase by redesigning ICP scoring, enrichment workflow, and territory alignment</li>
+                    <li>Delivered $150K+ annual savings by automating reporting and forecasting workflows consuming 3+ FTEs</li>
                 </ul>
                 <div class="exp-card-click-hint">
                     <i class="fas fa-expand-alt"></i> Click for details
@@ -1210,13 +1272,12 @@
                         <span class="exp-location">Bangalore, India</span>
                     </div>
                 </div>
-                <p class="exp-description">Southeast Asia's leading on-demand platform (Decacorn, $10B+ valuation)</p>
+                <p class="exp-description">Decacorn &middot; $100M+ Enterprise/B2B Vertical &middot; Indonesia, Singapore, Vietnam &middot; Promoted to Lead within 4 months</p>
                 <ul class="exp-achievements">
-                    <li>Led Operations Engineering for enterprise/B2B vertical ($100M+ annual revenue)</li>
-                    <li>Designed AI-enabled support platform, reducing MTTR by 45% and improving CSAT</li>
-                    <li>Built customer health data platform with 85% at-risk prediction accuracy</li>
-                    <li>Built CS operations framework from scratch; improved retention +18%, reduced churn -12%</li>
-                    <li>Global CS playbook adopted in 3 countries</li>
+                    <li>Solved systemic data trust problem — designed and shipped Cerberus, a middleware layer establishing Salesforce as canonical system with fault-tolerant architecture</li>
+                    <li>Introduced engineering discipline to CRM org — implemented version control and CI/CD via SFDX, cutting release cycles by 50%+</li>
+                    <li>Built Kafka-Postgres archival system and public/private APIs for authorization and data retrieval</li>
+                    <li>Led team of 6 developers, owning architecture RFCs and all technical decisions</li>
                 </ul>
                 <div class="exp-card-click-hint">
                     <i class="fas fa-expand-alt"></i> Click for details
@@ -1234,11 +1295,10 @@
                         <span class="exp-location">Mumbai, India</span>
                     </div>
                 </div>
-                <p class="exp-description">India's largest online higher education platform (Unicorn)</p>
+                <p class="exp-description">EdTech Unicorn &middot; India's largest online higher education platform</p>
                 <ul class="exp-achievements">
-                    <li>Built HubSpot → Salesforce integration and attribution model</li>
-                    <li>Established pipeline tracking for $50M+ pipeline</li>
-                    <li>Created executive dashboards for C-suite and board visibility</li>
+                    <li>Built CRM integration layer supporting $50M+ pipeline</li>
+                    <li>Designed C-suite revenue dashboards from scratch — first exposure to building the data layer executives make decisions on</li>
                 </ul>
                 <div class="exp-card-click-hint">
                     <i class="fas fa-expand-alt"></i> Click for details
@@ -1249,18 +1309,18 @@
                 <div class="exp-header">
                     <div class="exp-title">
                         <h3>GTM Systems Architect</h3>
-                        <span class="exp-company">Forte Research Systems</span>
+                        <span class="exp-company">Forte Research Systems (Acquired by Advarra)</span>
                     </div>
                     <div class="exp-meta">
                         <span class="exp-period">Sep 2016 – Nov 2019</span>
                         <span class="exp-location">Bangalore, India</span>
                     </div>
                 </div>
-                <p class="exp-description">Enterprise SaaS for clinical research (Acquired by Advarra)</p>
+                <p class="exp-description">Enterprise SaaS for clinical research</p>
                 <ul class="exp-achievements">
-                    <li>Zero-to-one Salesforce architect for 100+ person GTM team</li>
-                    <li>Automated KYC/contract workflows, reducing compliance workload 40%</li>
-                    <li>Built full-funnel visibility and forecasting models adopted by CFO/board</li>
+                    <li>Zero-to-one Salesforce architecture for 100+ person GTM org</li>
+                    <li>Reduced compliance workload 40% through workflow automation</li>
+                    <li>Built forecasting model adopted by CFO — pattern that repeated at Yugabyte and Kognitos</li>
                 </ul>
                 <div class="exp-card-click-hint">
                     <i class="fas fa-expand-alt"></i> Click for details
@@ -1281,57 +1341,57 @@
                 <div class="achievement-icon">
                     <i class="fas fa-dollar-sign"></i>
                 </div>
-                <h3>$50K+</h3>
-                <p>Annual cost savings delivered through AI-enabled automation and workflow optimization</p>
+                <h3>$150K+</h3>
+                <p>Annual savings at Yugabyte alone by automating reporting and forecasting workflows consuming 3+ FTEs</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <h3>32%</h3>
-                <p>Pipeline growth achieved through data-driven GTM operations and process redesign</p>
+                <p>Qualified pipeline increase by fixing process — ICP scoring, enrichment, territory alignment — not adding headcount</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
                 <h3>3x</h3>
-                <p>Revenue scale across 3 high-growth companies from Series A through C</p>
+                <p>Revenue scale — built the GTM infrastructure that 50+ sellers operated on daily</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-building"></i>
                 </div>
                 <h3>Zero-to-One</h3>
-                <p>India operations built from scratch: entity setup, compliance, payroll, 40+ person teams</p>
+                <p>3 entities built from scratch (India, US, SEA) — legal, payroll, compliance, hiring infrastructure, 60+ person offices</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-brain"></i>
                 </div>
-                <h3>AI Pioneer</h3>
-                <p>First GPT-powered automation in Salesforce; built GTM Sync as internal product</p>
+                <h3>Sync Smart</h3>
+                <p>Live SaaS product — React/Node.js stack proving that real-time activity capture + AI deal scoring eliminates manual CRM logging</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 <h3>Compliance</h3>
-                <p>SOC2/ISO27001 certified at 2 startups with zero critical findings</p>
+                <p>SOC2 Type II and ISO27001 at 2 companies — full program ownership, zero critical findings</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-clock"></i>
                 </div>
-                <h3>35%</h3>
-                <p>Shorter sales cycles through automation and process optimization</p>
+                <h3>25%</h3>
+                <p>Shorter quote-to-close cycle through CPQ overhaul and contract workflow automation</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
-                    <i class="fas fa-headset"></i>
+                    <i class="fas fa-code"></i>
                 </div>
-                <h3>45%</h3>
-                <p>Lower support MTTR through AI-enabled workflows and triage systems</p>
+                <h3>50%+</h3>
+                <p>Faster release cycles at Gojek by introducing SFDX, version control, and CI/CD to CRM org</p>
             </div>
         </div>
     </section>
@@ -1350,12 +1410,12 @@
                     <h3>Leadership</h3>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">Team Building</span>
-                    <span class="skill-tag">Strategic Planning</span>
-                    <span class="skill-tag">C-Suite Partnership</span>
-                    <span class="skill-tag">Operational Scaling</span>
-                    <span class="skill-tag">Vendor Management</span>
                     <span class="skill-tag">P&L Ownership</span>
+                    <span class="skill-tag">Board Reporting</span>
+                    <span class="skill-tag">Org Design</span>
+                    <span class="skill-tag">C-Suite Partnership</span>
+                    <span class="skill-tag">Entity Operations</span>
+                    <span class="skill-tag">Vendor Management</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
@@ -1364,40 +1424,42 @@
                     <h3>Technical</h3>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">Salesforce</span>
+                    <span class="skill-tag">Salesforce (Apex/SOQL)</span>
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">SQL</span>
                     <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">GPT-4/Claude</span>
-                    <span class="skill-tag">JSON/XML</span>
+                    <span class="skill-tag">React / Node.js</span>
+                    <span class="skill-tag">Kafka</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
                 <div class="skill-header">
                     <i class="fas fa-cogs"></i>
-                    <h3>Systems</h3>
+                    <h3>GTM & Business Systems</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">HubSpot</span>
                     <span class="skill-tag">DealHub CPQ</span>
                     <span class="skill-tag">Apollo</span>
+                    <span class="skill-tag">Outreach</span>
+                    <span class="skill-tag">ZoomInfo</span>
                     <span class="skill-tag">Rippling</span>
                     <span class="skill-tag">Drata</span>
-                    <span class="skill-tag">Zapier</span>
+                    <span class="skill-tag">Ramp</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
                 <div class="skill-header">
                     <i class="fas fa-check-circle"></i>
-                    <h3>Compliance</h3>
+                    <h3>SaaS Metrics & Compliance</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">SOC2 Type II</span>
                     <span class="skill-tag">ISO27001</span>
-                    <span class="skill-tag">GDPR</span>
-                    <span class="skill-tag">RevOps</span>
-                    <span class="skill-tag">GTM Strategy</span>
-                    <span class="skill-tag">OKRs</span>
+                    <span class="skill-tag">ARR/NRR/GRR</span>
+                    <span class="skill-tag">CAC/LTV</span>
+                    <span class="skill-tag">Pipeline Health</span>
+                    <span class="skill-tag">Forecasting</span>
                 </div>
             </div>
         </div>
@@ -1415,7 +1477,7 @@
                     </a>
                     <a href="tel:+919008318521" class="contact-link">
                         <i class="fas fa-phone"></i>
-                        +91-9008318521
+                        +91-900-831-8521
                     </a>
                     <a href="https://linkedin.com/in/abhishekgiridharbhat" target="_blank" class="contact-link">
                         <i class="fab fa-linkedin"></i>
@@ -1424,6 +1486,10 @@
                     <a href="https://github.com/abhishekgbhat" target="_blank" class="contact-link">
                         <i class="fab fa-github"></i>
                         GitHub
+                    </a>
+                    <a href="https://syncsmart-ruddy.vercel.app/landing" target="_blank" class="contact-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        Sync Smart
                     </a>
                 </div>
                 <div class="location-tag">
@@ -1444,55 +1510,45 @@
                 <div class="modal-header">
                     <h2>Director of Operations</h2>
                     <div class="modal-company">Kognitos</div>
-                    <div class="modal-meta">Nov 2023 – Present • Bangalore, India (US HQ: San Jose, CA) • AI-powered automation platform (Series B)</div>
+                    <div class="modal-meta">Nov 2023 – Present &middot; San Jose, CA (India Office: Bangalore) &middot; Series B AI Automation Platform &middot; 150+ Employees</div>
                 </div>
 
                 <div class="modal-metrics">
                     <div class="modal-metric">
-                        <span class="modal-metric-value">25+</span>
-                        <span class="modal-metric-label">Team Built</span>
+                        <span class="modal-metric-value">60+</span>
+                        <span class="modal-metric-label">India Office Built</span>
                     </div>
                     <div class="modal-metric">
-                        <span class="modal-metric-value">$50K+</span>
-                        <span class="modal-metric-label">Annual Savings</span>
+                        <span class="modal-metric-value">$500K+</span>
+                        <span class="modal-metric-label">P&L: Vendor Stack</span>
                     </div>
                     <div class="modal-metric">
                         <span class="modal-metric-value">15hrs</span>
-                        <span class="modal-metric-label">Saved Per AE/Week</span>
+                        <span class="modal-metric-label">Recovered Per AE/Week</span>
                     </div>
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
-                    <p>Kognitos was scaling rapidly as a Series B AI automation company with 150+ employees spread across US and India. The operations infrastructure was fragmented—no unified GTM system, manual processes eating up sales team time, and compliance requirements looming for enterprise deals. I was brought in to build the India operations from zero and architect systems that could scale.</p>
+                    <h3><i class="fas fa-bullseye"></i> Scope</h3>
+                    <p>Full P&L ownership of $500K+ vendor stack. Direct report to CEO. 5 managers, 25+ team members across Sales Ops, Marketing Ops, CS Ops, Support Ops, and Business Systems. Quarterly board presentations on revenue metrics and operational health. Three-geography operating model (US, India, APAC).</p>
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
-                    <p>I took a "build vs buy" approach with heavy emphasis on AI-powered automation—eating our own dog food. Rather than just implementing off-the-shelf tools, I architected custom integrations using our own AI platform combined with GPT-4/Claude/Gemini APIs.</p>
+                    <h3><i class="fas fa-trophy"></i> Key Decisions & Results</h3>
                     <ul class="modal-list">
-                        <li>Built India entity from scratch: legal structure, payroll (Rippling/GreytHR), compliance (Drata SOC2/ISO27001), spend controls (Ramp)</li>
-                        <li>Architected GTM Sync: an internal AI product that integrates Salesforce, Calendar, and Email to automatically transcribe calls, extract action items, and update CRM fields</li>
-                        <li>Designed lead routing engine with intelligent assignment based on territory, workload, and expertise</li>
-                        <li>Established board-ready reporting cadence with real-time pipeline dashboards</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
-                    <ul class="modal-list">
-                        <li>Built 25+ person India organization from zero to full operational capacity in 6 months</li>
-                        <li>GTM Sync saves 15+ hours per week per AE and $50K+ annually in productivity gains</li>
-                        <li>Lead routing improved assignment accuracy by 70% and speed by 90%</li>
-                        <li>Achieved SOC2/ISO27001 compliance with zero critical findings—enabling enterprise sales</li>
-                        <li>Manage $500K+ annual tooling budget with optimized vendor stack</li>
-                        <li>Direct partnership with CEO/COO on strategic planning and board reporting</li>
+                        <li><strong>Made the build-vs-buy decision on India operations</strong> — chose to build the entity from scratch (payroll, compliance, spend governance, hiring infra) rather than use a PEO, saving an estimated 30%+ in per-employee costs and establishing full regulatory control. Now a 60+ person office.</li>
+                        <li><strong>Designed and own the company's forecasting methodology</strong> — built the ARR, pipeline coverage, and SaaS KPI taxonomy that the board uses as its single source of truth. Replaced an ad-hoc spreadsheet process.</li>
+                        <li><strong>Restructured lead routing from scratch</strong> after diagnosing that 40%+ of qualified leads were being misassigned or delayed. Rebuilt territory logic, scoring model, and assignment engine — 70% accuracy improvement, 90% latency reduction, measurable lift in stage-1 conversion.</li>
+                        <li><strong>Consolidated the GTM stack</strong> under a unified governance model (Salesforce, HubSpot, Outreach, Apollo, ZoomInfo, DealHub, UnifyGTM, Factors) — rationalized overlapping tools, renegotiated contracts, drove 15+ hrs/week in recovered AE selling time.</li>
+                        <li><strong>Built CS and Support operations from zero</strong> — designed the frameworks, hired the teams, embedded automation into renewals, QBR prep, and ticket triage.</li>
+                        <li><strong>Own SOC2 Type II and ISO27001 compliance programs</strong> end-to-end — MDM enrollment via Rippling, control implementation in Drata, evidence management cadence. Zero critical findings.</li>
+                        <li><strong>Stood up partner operations</strong> — designed the AWS Partner Central migration, built the ISV co-sell workflow from listing to deal registration, established internal governance model for partner-sourced pipeline tracking.</li>
                     </ul>
                 </div>
 
                 <div class="modal-section">
                     <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
-                    <p>Salesforce, Rippling, GreytHR, Drata, Ramp, GPT-4/Claude/Gemini APIs, Zapier, Kognitos (internal AI platform), REST APIs, Python</p>
+                    <p>Salesforce, HubSpot, Outreach, Apollo, ZoomInfo, DealHub, UnifyGTM, Factors, Rippling, GreytHR, Drata, Ramp, AWS Partner Central, Python, REST APIs</p>
                 </div>
             </div>
         </div>
@@ -1507,7 +1563,7 @@
                 <div class="modal-header">
                     <h2>Senior Manager, Technical & Business Operations</h2>
                     <div class="modal-company">Yugabyte</div>
-                    <div class="modal-meta">Feb 2022 – Oct 2023 • Bangalore, India • High-performance distributed SQL database (Series C, $88M raised)</div>
+                    <div class="modal-meta">Feb 2022 – Oct 2023 &middot; Bangalore, India &middot; Series C, $188M Raised &middot; Open-Source Distributed SQL</div>
                 </div>
 
                 <div class="modal-metrics">
@@ -1520,43 +1576,31 @@
                         <span class="modal-metric-label">Faster Quote-to-Close</span>
                     </div>
                     <div class="modal-metric">
-                        <span class="modal-metric-value">32%</span>
-                        <span class="modal-metric-label">Pipeline Increase</span>
+                        <span class="modal-metric-value">$150K+</span>
+                        <span class="modal-metric-label">Annual Savings</span>
                     </div>
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
-                    <p>Yugabyte was expanding aggressively into new geographies while also needing to mature its GTM operations for enterprise readiness. The company had strong engineering but needed operational infrastructure to support a Series C growth trajectory. Key challenges: scaling GTM data across 3 new regions, implementing enterprise-grade compliance, and building partner operations from scratch.</p>
+                    <h3><i class="fas fa-bullseye"></i> Scope</h3>
+                    <p>First ops hire. Reported to CRO. Built the entire GTM operations function from zero — revenue systems, sales automation, compliance, international expansion — and owned outcomes across APAC, EMEA, and LATAM.</p>
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
-                    <p>I focused on three pillars: data infrastructure for scale, compliance automation for enterprise readiness, and partner enablement for channel growth. Built systems that provided visibility while automating manual work.</p>
+                    <h3><i class="fas fa-trophy"></i> Key Decisions & Results</h3>
                     <ul class="modal-list">
-                        <li>Scaled GTM data infrastructure to support 3x revenue growth across 3 new geographies</li>
-                        <li>Implemented DealHub CPQ and contract automation workflows</li>
-                        <li>Built compliance automation via Drata for SOC2 and ISO27001 certification</li>
-                        <li>Architected partner portal enabling 50+ channel partners to self-serve</li>
-                        <li>Created SaaS metrics dashboard (CAC, LTV, NRR) adopted by CFO for board reporting</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
-                    <ul class="modal-list">
-                        <li>Reduced quote-to-close time by 25% through CPQ implementation</li>
-                        <li>Achieved SOC2 and ISO27001 compliance with zero critical findings</li>
-                        <li>Drove 32% increase in qualified pipeline through Apollo/ZoomInfo implementation</li>
-                        <li>Built partner operations from scratch—onboarding 40% faster</li>
-                        <li>Led India entity setup including legal, payroll, and hiring operations; scaled team to 15+</li>
-                        <li>Board-ready forecasting models and SaaS metrics adopted by executive team</li>
+                        <li><strong>Inherited no infrastructure and built the full revenue stack</strong> — made the architectural decisions on Salesforce, HubSpot, Outreach, and enrichment tooling that the GTM org ran on through 3x revenue growth. Structural bets that shaped how 50+ sellers operated daily.</li>
+                        <li><strong>Proposed and executed a CPQ overhaul</strong> that reduced quote-to-close cycle by 25% — identified that contract workflow bottlenecks were costing 2-3 weeks per deal, architected the automation layer, eliminated the SE manual follow-up backlog entirely.</li>
+                        <li><strong>Designed the SaaS metrics framework</strong> (CAC, LTV, NRR, ARR forecasting) that the CFO adopted as the board-ready reporting layer — gave leadership visibility into unit economics that directly informed headcount and territory expansion decisions.</li>
+                        <li><strong>Drove 32% qualified pipeline increase</strong> by diagnosing that the inbound-to-outbound handoff was leaking leads. Redesigned ICP scoring, enrichment workflow, and territory alignment — pipeline gain came from fixing process, not adding headcount.</li>
+                        <li><strong>Delivered $150K+ annual savings</strong> by automating reporting and forecasting workflows that were consuming 3+ FTEs of manual effort. Made the case to leadership, built the automation, reallocated the capacity.</li>
+                        <li><strong>Led India entity setup</strong> including legal, payroll, and hiring operations; scaled team to 15+.</li>
                     </ul>
                 </div>
 
                 <div class="modal-section">
                     <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
-                    <p>DealHub CPQ, Apollo, ZoomInfo, Drata, Salesforce, SQL, SaaS metrics frameworks, Partner portal architecture</p>
+                    <p>DealHub CPQ, Apollo, ZoomInfo, Drata, Salesforce, HubSpot, Outreach, SQL, SaaS metrics frameworks</p>
                 </div>
             </div>
         </div>
@@ -1571,7 +1615,7 @@
                 <div class="modal-header">
                     <h2>Head of Operations Engineering</h2>
                     <div class="modal-company">Gojek</div>
-                    <div class="modal-meta">Mar 2020 – Jan 2022 • Bangalore, India • Southeast Asia's leading on-demand platform (Decacorn, $10B+ valuation)</div>
+                    <div class="modal-meta">Mar 2020 – Jan 2022 &middot; Bangalore, India &middot; Decacorn &middot; $100M+ Enterprise/B2B Vertical &middot; Indonesia, Singapore, Vietnam</div>
                 </div>
 
                 <div class="modal-metrics">
@@ -1580,47 +1624,33 @@
                         <span class="modal-metric-label">Revenue Vertical</span>
                     </div>
                     <div class="modal-metric">
-                        <span class="modal-metric-value">45%</span>
-                        <span class="modal-metric-label">MTTR Reduction</span>
+                        <span class="modal-metric-value">50%+</span>
+                        <span class="modal-metric-label">Faster Release Cycles</span>
                     </div>
                     <div class="modal-metric">
-                        <span class="modal-metric-value">85%</span>
-                        <span class="modal-metric-label">Prediction Accuracy</span>
+                        <span class="modal-metric-value">6</span>
+                        <span class="modal-metric-label">Dev Team Led</span>
                     </div>
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
-                    <p>Gojek's enterprise/B2B vertical was generating $100M+ annually but support operations were struggling to keep pace. High MTTR (mean time to resolution), reactive support model, and no systematic way to predict churn or health at-risk accounts. Needed to transform from reactive firefighting to proactive customer success.</p>
+                    <h3><i class="fas fa-bullseye"></i> Scope</h3>
+                    <p>Owned Salesforce platform engineering and cross-system integration architecture across three SEA markets for Gojek's enterprise merchant and payments verticals. Promoted to Lead within 4 months.</p>
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
-                    <p>I built an AI-enabled operations platform that combined predictive analytics with automated workflows. Created a 360-degree customer health view integrating product usage, support tickets, and Salesforce data.</p>
+                    <h3><i class="fas fa-trophy"></i> Key Decisions & Results</h3>
                     <ul class="modal-list">
-                        <li>Designed and deployed AI-enabled support platform for intelligent triage, classification, and routing</li>
-                        <li>Built customer health data platform integrating Salesforce + product analytics + support data</li>
-                        <li>Created automated renewal workflows and QBR preparation reducing manual work</li>
-                        <li>Developed CS operations framework from scratch for the enterprise vertical</li>
-                        <li>Collaborated with Product, Engineering, and Finance to operationalize GTM strategy</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-trophy"></i> Key Results</h3>
-                    <ul class="modal-list">
-                        <li>Reduced MTTR by 45% and improved CSAT scores through AI-powered support automation</li>
-                        <li>Achieved 85% at-risk prediction accuracy for customer churn</li>
-                        <li>Automated renewals and QBRs, cutting prep time by 60%</li>
-                        <li>Improved retention by 18% and reduced churn by 12%</li>
-                        <li>Global CS playbook adopted across 3 countries</li>
-                        <li>Built CS operations framework enabling scalable customer success</li>
+                        <li><strong>Solved a systemic data trust problem</strong> — merchant transaction, balance, and order data was fragmented across 4+ external systems with no single source of truth. Designed and shipped Cerberus, a middleware layer that established Salesforce as the canonical system, with retry-able fault tolerance via Batch Schedulers and Queueable interfaces. Unlocked SDR cross-sell motions that weren't previously possible.</li>
+                        <li><strong>Introduced engineering discipline to a CRM org</strong> — implemented version control and CI/CD via SFDX, eliminating deployment risk and cutting release cycles by 50%+.</li>
+                        <li><strong>Built the Kafka-Postgres archival system</strong> and public/private APIs for authorization and data retrieval — infrastructure-grade work inside an operations function.</li>
+                        <li><strong>Led a team of 6 developers</strong>, owning architecture RFCs and all technical decisions across the Salesforce platform.</li>
                     </ul>
                 </div>
 
                 <div class="modal-section">
                     <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
-                    <p>AI/ML for support triage, Salesforce, Data pipelines, Customer health scoring models, Python, SQL</p>
+                    <p>Salesforce (Apex, SOQL, SFDX), Kafka, Postgres, Python, SQL, REST APIs, Batch Schedulers, Queueable interfaces, CI/CD</p>
                 </div>
             </div>
         </div>
@@ -1635,7 +1665,7 @@
                 <div class="modal-header">
                     <h2>Operations Lead</h2>
                     <div class="modal-company">upGrad</div>
-                    <div class="modal-meta">Nov 2019 – Mar 2020 • Mumbai, India • India's largest online higher education platform (Unicorn)</div>
+                    <div class="modal-meta">Nov 2019 – Mar 2020 &middot; Mumbai, India &middot; EdTech Unicorn</div>
                 </div>
 
                 <div class="modal-metrics">
@@ -1654,27 +1684,10 @@
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
-                    <p>upGrad was scaling rapidly as India's largest edtech unicorn but lacked unified visibility into their $50M+ sales pipeline. Marketing and Sales were operating on disconnected systems (HubSpot vs Salesforce), making attribution impossible and forecasting unreliable. Leadership needed real-time visibility for board reporting.</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
-                    <p>I architected the integration between marketing automation and CRM, built attribution models, and created executive dashboards that provided real-time pipeline visibility.</p>
-                    <ul class="modal-list">
-                        <li>Built HubSpot to Salesforce integration enabling seamless lead flow</li>
-                        <li>Created attribution model to track lead sources and campaign effectiveness</li>
-                        <li>Established pipeline tracking infrastructure for $50M+ pipeline</li>
-                        <li>Designed executive dashboards for C-suite and board visibility</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
                     <h3><i class="fas fa-trophy"></i> Key Results</h3>
                     <ul class="modal-list">
-                        <li>Unified marketing and sales data for end-to-end visibility</li>
-                        <li>Enabled accurate attribution tracking for campaign ROI analysis</li>
-                        <li>Created real-time dashboards adopted by C-suite for decision making</li>
+                        <li><strong>Built the CRM integration layer</strong> supporting $50M+ pipeline — HubSpot to Salesforce enabling seamless lead flow</li>
+                        <li><strong>Designed C-suite revenue dashboards from scratch</strong> — first exposure to building the data layer that executives make decisions on</li>
                         <li>Foundation for scalable GTM operations at unicorn-scale company</li>
                     </ul>
                 </div>
@@ -1696,7 +1709,7 @@
                 <div class="modal-header">
                     <h2>GTM Systems Architect</h2>
                     <div class="modal-company">Forte Research Systems (Acquired by Advarra)</div>
-                    <div class="modal-meta">Sep 2016 – Nov 2019 • Bangalore, India • Enterprise SaaS for clinical research</div>
+                    <div class="modal-meta">Sep 2016 – Nov 2019 &middot; Bangalore, India &middot; Enterprise SaaS for Clinical Research</div>
                 </div>
 
                 <div class="modal-metrics">
@@ -1715,27 +1728,11 @@
                 </div>
 
                 <div class="modal-section">
-                    <h3><i class="fas fa-bullseye"></i> The Challenge</h3>
-                    <p>Forte was a growing enterprise SaaS company with 100+ GTM team members but no unified CRM or data infrastructure. Sales, Marketing, and Finance operated in silos with manual processes for KYC, contracts, and forecasting. Needed zero-to-one Salesforce architecture and full-funnel visibility.</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-lightbulb"></i> My Approach</h3>
-                    <p>I architected Salesforce from scratch as the single source of truth, built data integrations across systems, and automated compliance workflows to reduce manual burden.</p>
-                    <ul class="modal-list">
-                        <li>Zero-to-one Salesforce architect for 100+ person GTM team</li>
-                        <li>Built data integration across Salesforce, Marketing, and Finance systems</li>
-                        <li>Automated KYC and contract workflows to reduce compliance burden</li>
-                        <li>Created full-funnel visibility and forecasting models</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
                     <h3><i class="fas fa-trophy"></i> Key Results</h3>
                     <ul class="modal-list">
-                        <li>Built Salesforce foundation enabling scalable GTM operations</li>
-                        <li>Reduced compliance workload by 40% through workflow automation</li>
-                        <li>Created forecasting models adopted by CFO and board</li>
+                        <li><strong>Zero-to-one Salesforce architecture</strong> for 100+ person GTM org</li>
+                        <li><strong>Reduced compliance workload 40%</strong> through workflow automation of KYC and contract processes</li>
+                        <li><strong>Built the forecasting model the CFO adopted</strong> — pattern that repeated at Yugabyte and Kognitos</li>
                         <li>Established data foundation for company's acquisition by Advarra</li>
                         <li>Full-funnel visibility from lead to revenue for first time</li>
                     </ul>
@@ -1750,7 +1747,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Abhishek Giridhar Bhat. Built with precision.</p>
+        <p>&copy; 2025 Abhishek Giridhar Bhat. Built with precision.</p>
     </footer>
 
     <script>
@@ -1829,6 +1826,24 @@
             } else {
                 nav.style.background = 'rgba(10, 10, 15, 0.8)';
             }
+        });
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            });
         });
     </script>
 </body>
