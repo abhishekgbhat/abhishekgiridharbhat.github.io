@@ -8,6 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wotfz0l1pv");
+    </script>
+
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -699,6 +709,63 @@
             border-color: var(--accent-primary);
         }
 
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        .education-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-gradient);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .education-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-school {
+            color: var(--accent-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-period {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
         /* Contact Section */
         .contact-card-large {
             max-width: 800px;
@@ -1080,6 +1147,9 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
             .exp-header {
                 flex-direction: column;
             }
@@ -1106,6 +1176,7 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -1123,7 +1194,7 @@
             </div>
             <h1>Building the <span>Operating System Behind Revenue Growth</span></h1>
             <p class="hero-subtitle">VP Operations / COO &middot; Revenue Operations Architect &middot; Zero-to-One Entity Builder</p>
-            <p class="hero-description">10+ years scaling venture-backed SaaS companies from Series A through C. Built entities from zero, designed board-ready forecasting frameworks, and led 40+ person cross-functional teams across 3 geographies.</p>
+            <p class="hero-description">Operations leader supporting $50M+ ARR across 3 geographies. 10+ years building GTM infrastructure, revenue systems, and entity operations at venture-backed SaaS companies (Series A through C). Architect who ships code &mdash; Apex, Python, APIs &mdash; and presents quarterly to boards on ARR, NRR, and pipeline health.</p>
             <div class="hero-cta">
                 <a href="#experience" class="btn btn-primary">View Experience</a>
                 <a href="mailto:abhishek.bhat5@gmail.com" class="btn btn-secondary">Get in Touch</a>
@@ -1131,16 +1202,16 @@
             
             <div class="stats-bar">
                 <div class="stat-item">
-                    <span class="stat-number">$50M</span>
-                    <span class="stat-label">ARR Under Management</span>
+                    <span class="stat-number">$50M+</span>
+                    <span class="stat-label">ARR Supported</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">$500K</span>
-                    <span class="stat-label">P&L: Vendor & Tooling</span>
+                    <span class="stat-number">$500K+</span>
+                    <span class="stat-label">Vendor P&L Owned</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">Companies Scaled</span>
+                    <span class="stat-number">2x</span>
+                    <span class="stat-label">India Entities Built</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">40+</span>
@@ -1160,8 +1231,8 @@
         <div class="about-grid">
             <div class="about-text fade-in">
                 <p>10+ years owning P&L, org design, and GTM infrastructure at venture-backed SaaS companies through <span class="highlight">Series A → C inflection points</span>. Track record of making high-stakes resource allocation and market entry decisions that directly shaped company trajectory.</p>
-                <p>Built <span class="highlight">two India entities from zero</span>, designed the forecasting frameworks adopted by two separate CFOs as board-ready reporting layers, and personally consolidated $500K+ in vendor spend under a unified efficiency model.</p>
-                <p>Rare operator who <span class="highlight">architects systems at depth</span> — ships Apex, Python, and API integrations — while presenting quarterly to boards on ARR, NRR, and pipeline health. Built and shipped <span class="highlight">Sync Smart</span> as a live SaaS product proving that RevOps is a product problem to solve.</p>
+                <p>Built <span class="highlight">two India entities from scratch</span>, designed forecasting frameworks adopted by <span class="highlight">two separate CFOs</span> as board-ready reporting layers, and personally consolidated $500K+ in vendor spend under a unified efficiency model across a 40+ person cross-functional team.</p>
+                <p>Rare operator who <span class="highlight">architects systems at depth</span> — ships Apex, Python, and API integrations — while presenting quarterly to boards on ARR, NRR, and pipeline health. Built <span class="highlight">Sync Smart</span> as a concept prototype demonstrating that real-time activity capture + AI deal scoring can replace manual CRM logging.</p>
             </div>
             <div class="about-highlights fade-in">
                 <div class="highlight-item">
@@ -1179,7 +1250,7 @@
                     </div>
                     <div class="highlight-content">
                         <h4>Sync Smart</h4>
-                        <p>Live SaaS product — React/Node.js, AI deal scoring</p>
+                        <p>Concept prototype — React/Node.js, AI deal scoring</p>
                     </div>
                 </div>
                 <div class="highlight-item">
@@ -1187,8 +1258,8 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <div class="highlight-content">
-                        <h4>3 Entities Built</h4>
-                        <p>India, US, SEA — from zero</p>
+                        <h4>2x India Entities</h4>
+                        <p>Built from scratch — 60+ person office at Kognitos</p>
                     </div>
                 </div>
                 <div class="highlight-item">
@@ -1225,12 +1296,13 @@
                 </div>
                 <p class="exp-description">Series B AI Automation Platform &middot; 150+ Employees &middot; Direct report to CEO &middot; Full P&L ownership of $500K+ vendor stack</p>
                 <ul class="exp-achievements">
-                    <li>Made the build-vs-buy decision on India operations — built entity from scratch, saving 30%+ in per-employee costs. Now a 60+ person office</li>
-                    <li>Designed and own the company's forecasting methodology — ARR, pipeline coverage, and SaaS KPI taxonomy used as board's single source of truth</li>
-                    <li>Restructured lead routing from scratch — 70% accuracy improvement, 90% latency reduction, measurable lift in stage-1 conversion</li>
-                    <li>Consolidated GTM stack under unified governance model — recovered 15+ hrs/week in AE selling time through automation</li>
-                    <li>Own SOC2 Type II and ISO27001 compliance programs end-to-end. Zero critical findings</li>
-                    <li>Stood up partner operations — AWS Partner Central migration, ISV co-sell workflow, partner-sourced pipeline tracking</li>
+                    <li>Built India entity from scratch (payroll, compliance, spend governance, hiring infra) instead of using a PEO — saved 30%+ per-employee cost, now a 60+ person office</li>
+                    <li>Designed company's forecasting methodology — ARR, pipeline coverage, and SaaS KPI taxonomy adopted by the board as single source of truth. Reduced forecasting variance by ~20%</li>
+                    <li>Rebuilt lead routing from scratch — 70% accuracy improvement, 90% latency reduction, measurable lift in stage-1 conversion</li>
+                    <li>Consolidated GTM stack under unified governance — recovered 15+ hrs/week in AE selling time through automation</li>
+                    <li>Built CS &amp; Support operations from zero — improved retention ~15% and reduced average onboarding cycle from 6 weeks to 4 weeks</li>
+                    <li>Own SOC2 Type II and ISO 27001 compliance programs end-to-end. Zero critical findings across 2 audit cycles</li>
+                    <li>Stood up partner operations — AWS Partner Central migration and ISV co-sell workflow contributing ~8% of qualified pipeline</li>
                 </ul>
                 <div class="exp-card-click-hint">
                     <i class="fas fa-expand-alt"></i> Click for details
@@ -1363,21 +1435,21 @@
                     <i class="fas fa-building"></i>
                 </div>
                 <h3>Zero-to-One</h3>
-                <p>3 entities built from scratch (India, US, SEA) — legal, payroll, compliance, hiring infrastructure, 60+ person offices</p>
+                <p>India entities built from scratch twice — legal, payroll, compliance, hiring infrastructure. 60+ person office at Kognitos, 30%+ cost savings vs PEO</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-brain"></i>
                 </div>
                 <h3>Sync Smart</h3>
-                <p>Live SaaS product — React/Node.js stack proving that real-time activity capture + AI deal scoring eliminates manual CRM logging</p>
+                <p>Concept prototype — React/Node.js stack demonstrating that real-time activity capture + AI deal scoring can replace manual CRM logging</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 <h3>Compliance</h3>
-                <p>SOC2 Type II and ISO27001 at 2 companies — full program ownership, zero critical findings</p>
+                <p>SOC2 Type II and ISO 27001 — full program ownership, zero critical findings across 2 audit cycles</p>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-icon">
@@ -1393,6 +1465,27 @@
                 <h3>50%+</h3>
                 <p>Faster release cycles at Gojek by introducing SFDX, version control, and CI/CD to CRM org</p>
             </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>~20%</h3>
+                <p>Reduction in forecasting variance at Kognitos by replacing ad-hoc spreadsheets with a board-grade KPI taxonomy</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>~15%</h3>
+                <p>Retention improvement and onboarding cycle reduced from 6 to 4 weeks by building CS &amp; Support ops from zero</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>~8%</h3>
+                <p>Of qualified pipeline contributed by partner co-sell channel — from dormant relationship to active revenue stream</p>
+            </div>
         </div>
     </section>
 
@@ -1406,60 +1499,105 @@
         <div class="skills-grid">
             <div class="skill-category fade-in">
                 <div class="skill-header">
-                    <i class="fas fa-users"></i>
-                    <h3>Leadership</h3>
+                    <i class="fas fa-rocket"></i>
+                    <h3>GTM Platforms</h3>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">P&L Ownership</span>
-                    <span class="skill-tag">Board Reporting</span>
-                    <span class="skill-tag">Org Design</span>
-                    <span class="skill-tag">C-Suite Partnership</span>
-                    <span class="skill-tag">Entity Operations</span>
-                    <span class="skill-tag">Vendor Management</span>
+                    <span class="skill-tag">Salesforce (Apex/SOQL/Flows/CPQ)</span>
+                    <span class="skill-tag">HubSpot</span>
+                    <span class="skill-tag">Outreach</span>
+                    <span class="skill-tag">Apollo</span>
+                    <span class="skill-tag">ZoomInfo</span>
+                    <span class="skill-tag">Clearbit</span>
+                    <span class="skill-tag">6sense</span>
+                    <span class="skill-tag">DealHub</span>
+                    <span class="skill-tag">UnifyGTM</span>
+                    <span class="skill-tag">Factors</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
                 <div class="skill-header">
                     <i class="fas fa-code"></i>
-                    <h3>Technical</h3>
+                    <h3>Engineering</h3>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">Salesforce (Apex/SOQL)</span>
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">SQL</span>
                     <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">React / Node.js</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
                     <span class="skill-tag">Kafka</span>
+                    <span class="skill-tag">SFDX</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Batch Schedulers</span>
+                    <span class="skill-tag">Queueable Interfaces</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
                 <div class="skill-header">
                     <i class="fas fa-cogs"></i>
-                    <h3>GTM & Business Systems</h3>
+                    <h3>Business Systems</h3>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">HubSpot</span>
-                    <span class="skill-tag">DealHub CPQ</span>
-                    <span class="skill-tag">Apollo</span>
-                    <span class="skill-tag">Outreach</span>
-                    <span class="skill-tag">ZoomInfo</span>
+                    <span class="skill-tag">Ironclad</span>
+                    <span class="skill-tag">DocuSign</span>
                     <span class="skill-tag">Rippling</span>
+                    <span class="skill-tag">GreytHR</span>
                     <span class="skill-tag">Drata</span>
                     <span class="skill-tag">Ramp</span>
+                    <span class="skill-tag">Stripe</span>
+                    <span class="skill-tag">Chargebee</span>
+                    <span class="skill-tag">AWS Partner Central</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
                 <div class="skill-header">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>SaaS Metrics & Compliance</h3>
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Compliance & Domains</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">SOC2 Type II</span>
-                    <span class="skill-tag">ISO27001</span>
-                    <span class="skill-tag">ARR/NRR/GRR</span>
-                    <span class="skill-tag">CAC/LTV</span>
-                    <span class="skill-tag">Pipeline Health</span>
+                    <span class="skill-tag">ISO 27001</span>
+                    <span class="skill-tag">RevOps</span>
+                    <span class="skill-tag">Sales Ops</span>
+                    <span class="skill-tag">CS Ops</span>
+                    <span class="skill-tag">Marketing Ops</span>
+                    <span class="skill-tag">Support Ops</span>
+                    <span class="skill-tag">Entity Ops</span>
+                    <span class="skill-tag">Board Reporting</span>
                     <span class="skill-tag">Forecasting</span>
+                    <span class="skill-tag">GTM Engineering</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education-section">
+        <div class="section-header fade-in">
+            <span class="section-label">Education</span>
+            <h2 class="section-title">Academic Background</h2>
+            <p class="section-subtitle">Computer Science foundation that informs the engineering depth applied to operations.</p>
+        </div>
+
+        <div class="education-grid">
+            <div class="education-card fade-in">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-body">
+                    <h3>Postgraduate, Computer Science</h3>
+                    <div class="education-school">IIIT Bangalore</div>
+                    <div class="education-period">2018 &ndash; 2019</div>
+                </div>
+            </div>
+            <div class="education-card fade-in">
+                <div class="education-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="education-body">
+                    <h3>BE, Computer Science</h3>
+                    <div class="education-school">RNS Institute of Technology</div>
+                    <div class="education-period">2012 &ndash; 2016</div>
                 </div>
             </div>
         </div>
@@ -1536,13 +1674,13 @@
                 <div class="modal-section">
                     <h3><i class="fas fa-trophy"></i> Key Decisions & Results</h3>
                     <ul class="modal-list">
-                        <li><strong>Made the build-vs-buy decision on India operations</strong> — chose to build the entity from scratch (payroll, compliance, spend governance, hiring infra) rather than use a PEO, saving an estimated 30%+ in per-employee costs and establishing full regulatory control. Now a 60+ person office.</li>
-                        <li><strong>Designed and own the company's forecasting methodology</strong> — built the ARR, pipeline coverage, and SaaS KPI taxonomy that the board uses as its single source of truth. Replaced an ad-hoc spreadsheet process.</li>
-                        <li><strong>Restructured lead routing from scratch</strong> after diagnosing that 40%+ of qualified leads were being misassigned or delayed. Rebuilt territory logic, scoring model, and assignment engine — 70% accuracy improvement, 90% latency reduction, measurable lift in stage-1 conversion.</li>
+                        <li><strong>Built India entity from scratch</strong> (payroll, compliance, spend governance, hiring infra) instead of using a PEO — saved 30%+ per-employee cost and established full regulatory control. Now a 60+ person office.</li>
+                        <li><strong>Designed and own the company's forecasting methodology</strong> — built the ARR, pipeline coverage, and SaaS KPI taxonomy that the board uses as its single source of truth, replacing an ad-hoc spreadsheet process. <strong>Reduced forecasting variance by ~20%.</strong></li>
+                        <li><strong>Rebuilt lead routing from scratch</strong> after diagnosing that 40%+ of qualified leads were being misassigned or delayed. Redesigned territory logic, scoring model, and assignment engine — 70% accuracy improvement, 90% latency reduction, measurable lift in stage-1 conversion.</li>
                         <li><strong>Consolidated the GTM stack</strong> under a unified governance model (Salesforce, HubSpot, Outreach, Apollo, ZoomInfo, DealHub, UnifyGTM, Factors) — rationalized overlapping tools, renegotiated contracts, drove 15+ hrs/week in recovered AE selling time.</li>
-                        <li><strong>Built CS and Support operations from zero</strong> — designed the frameworks, hired the teams, embedded automation into renewals, QBR prep, and ticket triage.</li>
-                        <li><strong>Own SOC2 Type II and ISO27001 compliance programs</strong> end-to-end — MDM enrollment via Rippling, control implementation in Drata, evidence management cadence. Zero critical findings.</li>
-                        <li><strong>Stood up partner operations</strong> — designed the AWS Partner Central migration, built the ISV co-sell workflow from listing to deal registration, established internal governance model for partner-sourced pipeline tracking.</li>
+                        <li><strong>Built CS and Support operations from zero</strong> — designed the frameworks, hired the teams, embedded automation into renewals, QBR prep, and ticket triage. <strong>Improved retention ~15%, reduced average onboarding cycle from 6 weeks to 4 weeks.</strong></li>
+                        <li><strong>Own SOC2 Type II and ISO 27001 compliance programs</strong> end-to-end — MDM enrollment via Rippling, control implementation in Drata, evidence management cadence. <strong>Zero critical findings across 2 audit cycles.</strong></li>
+                        <li><strong>Stood up partner operations</strong> — designed the AWS Partner Central migration, built the ISV co-sell workflow from listing to deal registration. Turned a dormant partnership into an active co-sell channel <strong>contributing ~8% of qualified pipeline.</strong></li>
                     </ul>
                 </div>
 
@@ -1747,7 +1885,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Abhishek Giridhar Bhat. Built with precision.</p>
+        <p>&copy; 2026 Abhishek Giridhar Bhat. Built with precision.</p>
     </footer>
 
     <script>
